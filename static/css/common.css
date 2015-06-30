@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+body{
+	margin: 0;
+	font-family:helvetica, sans-serif;
+	color: #333;
+}
+main {
+    width: 960px;
+    margin: 60px auto;
+}
+.left {
+    width: 700px;
+    float: left;
+}
+.right {
+    width: 260px;
+    float: right;
+}
+.left, .right {
+    padding: 10px 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.hidden{
+    display:none;
+}
+.clearfix::after{
+    content:'';
+    display:block;
+    clear:both;
+}
+.link{
+    text-decoration:none;
+    color:#333;
+}
+.link:hover{
+    text-decoration:underline;
+    color:#00BCD4;
+}
+.meta {
+    color: #666;
+    font-size: 0.75rem;
+}

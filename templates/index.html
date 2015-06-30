@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UKnow</title>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/question.css">
+    <link rel="stylesheet" href="/static/css/aside.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <script src="/static/js/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+    {% include "topnav_template.html" %}
+
+    <main class="clearfix">
+        <section class="left">
+            {% for i in activities %}
+                <div class="activity-wrapper">
+                    <p><a href="/question/{{ i['qid'] }}" class="title link emphasis">{{ i['title'] }}</a></p>
+                    {% if i.get('answer') %}
+                        <div class="answer">{{ i['answer'] }}</div>
+                        <p class="meta">
+                            <a href="/user/{{ i['answerer'] }}" class="link">{{ i['answerer'] }}</a>
+                            Answered at {{ i.time }}
+                        </p>
+                    {% else %}
+                        <p class="meta">
+                            <a href="/user/{{ i['asker'] }}" class="link">{{ i['asker'] }}</a>
+                            Asked at {{ i['time'] }}
+                        </p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </section>
+
+        <aside class="right">
+        <div class="aside-group">
+            <h4>热门问题</h4>
+            <ul>
+                {%- for i in hot_questions -%}
+                    <li class="rques"><a class="link" href="/question/{{ i.qid }}">{{ i.title }}</a></li>
+                {%- endfor -%}
+            </ul>
+        </div>
+
+        <div class="aside-group">
+            <h4>热门用户</h4>
+            <ul>
+                {%- for i in hot_users -%}
+                    <li class="ruser clearfix">
+                        <a href="/user/{{ i.username }}"><img src="/static/img/avatar/{{ i.avatar }}" alt=""></a>
+
+                        <div>
+                            <a href="/user/{{ i.username }}" class="name">{{ i.username }}</a>
+
+                            <p class="description">{{ i.motto }}</p>
+                        </div>
+                    </li>
+                {%- endfor -%}
+            </ul>
+        </div>
+
+        <p class="copyright">&copy; 2015 UKnow</p>
+    </aside>
+    </main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+.setting-title{
+    font-weight: bold;
+}
+
+.update-setting-button, .update-avatar-button{
+    background-color: #29759B;
+    cursor: pointer;
+    padding: 5px;
+    width: 70px;
+    color: #fff;
+    text-align: center;
+}
+
+.update-setting-button:hover, .update-avatar-button:hover{
+    background-color: #6bd7e5;
+}
+
+.setting-wrapper + .setting-wrapper{
+    border-top: 1px #aaa solid;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.setting-wrapper input{
+    display: block;
+    width: 90%;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.setting-wrapper input[type=file] {
+    display: inline;
+    width: inherit;
+}
+
+.update-setting-status{
+    display: none;
+    opacity: 1;
+    width: 30px;
+    color: red;
+}
+
+.avatar-preview{
+    max-width: 100px;
+    max-height: 100px;
+}

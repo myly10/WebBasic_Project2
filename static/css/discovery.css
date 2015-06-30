@@ -1,0 +1,11 @@
+.ans-wrapper {
+    border-bottom: 1px solid #ccc;
+}
+
+ul{
+    list-style: outside none none;
+}
+
+.title{
+    font-weight: bold;
+}

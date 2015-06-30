@@ -1,0 +1,13 @@
+{% for comment in comments %}
+<div class="comment-item clearfix">
+    <a href="/user/{{ comment[0] }}"><img src="/static/img/avatar/{{ get_user(comment[0]).avatar }}" alt=""></a>
+
+    <div class="content">
+        <p class="name"><a href="/user/{{ comment[0] }}">{{ comment[0] }}</a></p>
+
+        <p class="comment">{{ comment[1] }}</p>
+
+        <p class="meta">{{ comment[2] }}</p>
+    </div>
+</div>
+{% endfor %}

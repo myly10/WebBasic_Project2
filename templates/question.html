@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UKnow</title>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/question.css">
+    <link rel="stylesheet" href="/static/css/aside.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <script src="/static/js/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+{% include "topnav_template.html" %}
+
+<main class="clearfix">
+    <section class="left">
+        <div class="question" id="question">
+            <h3>{{ question.title }}</h3>
+
+            <p>{{ question.content }}</p>
+
+            <p class="meta">
+                <a href="/user/{{ question.ask_user }}" class="link">{{ question.ask_user }}</a> 提问于
+                <span>{{ question.time }}</span>
+            </p>
+        </div>
+
+        <div class="answers-wrapper" id="answers-wrapper">
+            {%- include "answer_template.html" -%}
+        </div>
+        {%- if not finished -%}
+            <div id="show-more-wrapper">Show more...</div>
+        {%- endif -%}
+        <div class="publish-form">
+            <form id="publish-form" action="/question/{{ question.qid }}/answer" method="post">
+                <textarea cols="30" rows="10" id="answer-content"></textarea>
+
+                <div class="input-wrapper clearfix">
+                    <input type="file" id="answer-image-file" accept="image/*"><i class="fa fa-picture-o"></i></input>
+                    <input type="submit" id="submit-answer" value="发布回答">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <aside class="right">
+        <div class="aside-group">
+            <h4>热门问题</h4>
+            <ul>
+                {%- for i in hot_questions -%}
+                    <li class="rques"><a class="link" href="/question/{{ i.qid }}">{{ i.title }}</a></li>
+                {%- endfor -%}
+            </ul>
+        </div>
+
+        <div class="aside-group">
+            <h4>热门用户</h4>
+            <ul>
+                {%- for i in hot_users -%}
+                    <li class="ruser clearfix">
+                        <a href="/user/{{ i.username }}"><img src="/static/img/avatar/{{ i.avatar }}" alt=""></a>
+
+                        <div>
+                            <a href="/user/{{ i.username }}" class="name">{{ i.username }}</a>
+
+                            <p class="description">{{ i.motto }}</p>
+                        </div>
+                    </li>
+                {%- endfor -%}
+            </ul>
+        </div>
+
+        <p class="copyright">&copy; 2015 UKnow</p>
+    </aside>
+</main>
+<script src="/static/js/question.js"></script>
+</body>
+</html>

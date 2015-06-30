@@ -1,0 +1,57 @@
+<nav>
+    <div class="nav-wrapper clearfix">
+        <a href="/" class="logo"><h1>UKnow</h1></a>
+
+        <form action="/search" class="nav-form">
+            <input type="text" name="q" placeholder="搜索问题或用户">
+            <button><i class="fa fa-search"></i></button>
+        </form>
+        <button class="nav-ask" id="nav-ask">提问题</button>
+        <ul class="menubar">
+            <li class="menu"><a href="/">首页</a></li>
+            <li class="menu"><a href="/404">话题</a></li>
+            <li class="menu"><a href="/discovery">发现</a></li>
+        </ul>
+        <div class="nav-profile">
+            <a href="/user/{{ cur_user.username }}" class="userinfo">
+                <img src="/static/img/avatar/{{ cur_user.avatar }}" alt="">
+                <span>{{ cur_user.username }}</span>
+            </a>
+            <ul class="submenubar">
+                <li class="submenu">
+                    <a href="/user/{{ cur_user.username }}"><i class="fa fa-user"></i>我的主页</a>
+                </li>
+                <li class="submenu">
+                    {% if cur_user.have_unread_msg() %}
+                        <a href="/message" style="color: red"><i class="fa fa-envelope-o"></i>有新私信</a>
+                    {% else %}
+                        <a href="/message"><i class="fa fa-envelope-o"></i>私信</a>
+                    {% endif %}
+                </li>
+                <li class="submenu">
+                    <a href="/settings"><i class="fa fa-cog"></i>设置</a>
+                </li>
+                <li class="submenu">
+                    <a href="/logout"><i class="fa fa-sign-out"></i>退出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="new-question-wrapper new-question-shadow"></div>
+<div class="new-question-wrapper new-question-window-wrapper">
+    <div class="new-question-window-title" id=":2n">
+        <span class="new-question-window-title-text">提问</span>
+        <span class="new-question-window-title-close" id="new-question-window-title-close"></span>
+    </div>
+    <div class="new-question-inner-wrapper">
+        <textarea id="new-question-title" title="在这里输入问题" class="new-question-title" placeholder="写下你的问题" autocomplete="off"></textarea>
+        <span style="display: block"><br>问题说明（可选）：</span>
+        <textarea id="new-question-content" class="new-question-content"></textarea>
+
+        <div class="new-question-submit-wrapper">
+            <button class="new-question-submit" id="new-question-submit">Submit</button>
+        </div>
+    </div>
+</div>
+<script src="/static/js/nav.js"></script>

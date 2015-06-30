@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* style for tab wrapper
+---------------------------------------------*/
+
+.tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #00BCD4;
+}
+.tabs .tab {
+    float: left;
+    width: 100px;
+    padding: 10px 0;
+    text-align: center;
+    border: 1px solid #fff;
+    border-bottom: 1px solid #00bcd4;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+}
+.tabs .tab.active {
+    border: 1px solid #00bcd4;
+    border-bottom: 1px solid #fff;
+}
+.tabpanes .tabpane {
+    display: none;
+}
+.tabpanes .tabpane.active {
+    display: block;
+}
+.ans-wrapper {
+    border-bottom: 1px solid #ccc;
+}
+.ans-wrapper .answer {
+    font-size: 0.875rem;
+}
+/* style for profile
+------------------------------------*/
+
+.right {
+    border-left: 1px solid #ccc;
+}
+.profile-img {
+    text-align: center;
+    padding: 20px 0;
+}
+.profile-img img {
+    width: 80px;
+    border-radius: 3px;
+}
+.profile-follow {
+    padding: 20px 0;
+}
+.profile-follow>div {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.profile-answer li+li {
+    border-top: 1px solid #ccc;
+}
+.profile-followee, .profile-follower {
+    border-top: 1px solid #ccc;
+    padding: 20px 0;
+}
+.profile-followee h4, .profile-follower h4 {
+    margin-top: 0;
+}
+.profile-followee img, .profile-follower img {
+    width: 30px;
+    border-radius: 2px;
+}
+
+.follow-him, .chat-him{
+    background-color: #29759B;
+    color: #fff;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.follow-him:hover, .chat-him:hover{
+    background-color: #00BCD4;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.chat-him{
+    margin-top: 10px;
+}

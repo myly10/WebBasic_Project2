@@ -1,0 +1,13 @@
+{% if chat_msg.from_uid == cur_user.uid %}
+    {% set from_user = cur_user %}
+{% else %}
+    {% set from_user = user %}
+{% endif %}
+<div class="message-wrapper clearfix">
+    <img class="userImg" src="/static/img/avatar/{{ from_user.avatar }}">
+    <div>
+        <span style="color:cornflowerblue">{{ from_user.username }}</span>
+        <span>{{ chat_msg.msg }}</span>
+        <span style="color:lightskyblue">{{ chat_msg.time }}</span>
+    </div>
+</div>

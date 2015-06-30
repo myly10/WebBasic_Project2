@@ -1,0 +1,32 @@
+{% for ans in answers %}
+    {% set ans_user = get_user(ans.answerer) %}
+    <div class="answer-wrapper" data-aid="{{ ans.aid }}">
+        <div class="user clearfix">
+            <a href="/user/{{ ans_user.username }}"><img src="/static/img/avatar/{{ ans_user.avatar }}" alt=""></a>
+
+            <p>
+                <a href="/user/{{ ans_user.username }}" class="name">{{ ans_user.username }}</a>
+                <span class="description">{{ ans_user.motto }}</span>
+            </p>
+        </div>
+        <div class="answer">
+            {% autoescape false %}
+            <p>{{ ans.content }}</p>
+            {% endautoescape %}
+        </div>
+        <div class="meta">
+            <span class="comments" data-comments-n="{{ ans.comments_n }}">评论({{ ans.comments_n }})</span>
+            <span class="time">{{ ans.time }}</span>
+        </div>
+        <div class="comments-wrapper" data-comment-loaded="false">
+            <div class="comments-content-wrapper"></div>
+            <div class="comment-form">
+                <form action="/answer/{{ ans.aid }}/comment" method="post">
+                    <textarea class="new-comment-content" name="comment" value=""></textarea>
+
+                    <div class="btn-wrapper"><input class="new-comment-submit" type="submit" value="发表评论"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endfor %}
